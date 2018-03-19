@@ -50,7 +50,9 @@
                 <value class="value" valueClass="string">TestResult</value>
               </namedValue>
               <namedValue name="value">
-                <value class="funcCall" id="TestCaseSuccessful"/>
+                <value class="variable">
+                  <path element="TestCaseResult"/>
+                </value>
               </namedValue>
               <namedValue name="valueScope">
                 <value class="value" valueClass="string">Test</value>
@@ -69,10 +71,15 @@
       <clauses>
         <clause name="hidden" testItemId="18">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="3" title="If: {TestCaseSuccessful()}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="3" title="If: {TestResult = &quot;successful&quot;}">
               <arguments>
                 <argument id="condition">
-                  <value class="funcCall" id="TestCaseSuccessful"/>
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="TestResult"/>
+                    </lhs>
+                    <rhs class="value" valueClass="string">successful</rhs>
+                  </value>
                 </argument>
               </arguments>
               <clauses>
@@ -101,12 +108,14 @@
                 </clause>
                 <clause name="else" testItemId="8">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="11" title="If: {TestCaseOutcome() = &quot;Failed&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="11" title="If: {TestResult = &quot;failed&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
-                            <lhs class="funcCall" id="TestCaseOutcome"/>
-                            <rhs class="value" valueClass="string">Failed</rhs>
+                            <lhs class="variable">
+                              <path element="TestResult"/>
+                            </lhs>
+                            <rhs class="value" valueClass="string">failed</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -234,9 +243,22 @@
         </textType>
       </type>
     </param>
+    <param name="TestCaseResult" title="Test Case Result">
+      <summary>Result of the TestCaseOutcome of the calling test case\t</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">255</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <args>
     <argument id="TestCaseName"/>
+    <argument id="TestCaseResult"/>
   </args>
   <parameterValueSources/>
 </testCase>
