@@ -81,11 +81,9 @@
           <value class="compound">
             <parts>
               <value valueClass="string">Execution </value>
-              <funcCall id="UniqueId">
-                <argument id="length">
-                  <value class="value" valueClass="decimal">6</value>
-                </argument>
-              </funcCall>
+              <variable>
+                <path element="NOW"/>
+              </variable>
             </parts>
           </value>
         </argument>
