@@ -20,7 +20,7 @@
                            TestSuiteExecution duration information.
 
 
-    Write Test Results: Is a Callable Test with a parameter of the Test Case Name being run, which you 
+    Write Test Results:    Is a Callable Test with a parameter of the Test Case Name being run, which you 
     to Salesforce          can pass using the {TestCaseName()} expression. You may want to extend this
                            test to pass the start and end times for the test case too. This test inserts
                            a new record into TestCaseExecution and links it to the TestSuiteExecution. 
