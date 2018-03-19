@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="4">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: DemoSandbox (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">DemoSandbox</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">DemoSandbox</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.bdd.Given" name="Given" testItemId="7" title="Given: your test case">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">your test case</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="8"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.bdd.When" name="When" testItemId="9" title="When: this test executes">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">this test executes</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="10"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.bdd.Then" name="Then" testItemId="11" title="Then: the results are logged automatically">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">the results are logged automatically</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="12"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.Finally" name="Finally" testItemId="2" title="Finally: Log the test results to Salesforce">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Log the test results to Salesforce</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="3">
+          <steps>
+            <caseCall testCaseId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" testCasePath="tests/Write Test Results to Salesforce.testcase" testItemId="4">
+              <arguments>
+                <argument id="TestCaseName">
+                  <value class="funcCall" id="TestCaseName"/>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>
