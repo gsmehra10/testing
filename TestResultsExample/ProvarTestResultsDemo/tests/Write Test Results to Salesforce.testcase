@@ -2,127 +2,103 @@
 <testCase failureBehaviour="Continue" id="7" registryId="323ac3dd-379e-45cd-a2af-a8a5e5b3776c" visibility="Internal">
   <summary>&lt;font face="Lucida Grande"&gt;Need to map the Provar test results to be Pass, Fail or Skipped.&lt;/font&gt;</summary>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: DemoSandbox (Test)">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="28" title="If: {TestSuiteExecutionId != null}">
       <arguments>
-        <argument id="connectionName">
-          <value class="value" valueClass="string">DemoSandbox</value>
-        </argument>
-        <argument id="resultName">
-          <value class="value" valueClass="string">DemoSandbox</value>
-        </argument>
-        <argument id="resultScope">
-          <value class="value" valueClass="string">Test</value>
-        </argument>
-        <argument id="uiApplicationName"/>
-        <argument id="quickUiLogin">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="closeAllPrimaryTabs">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="reuseConnectionName"/>
-        <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
-        </argument>
-        <argument id="privateBrowsingMode"/>
-        <argument id="enableObjectIdLogging">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="autoCleanup"/>
-        <argument id="cleanupConnectionName"/>
-        <argument id="logFileLocation"/>
-        <argument id="username"/>
-        <argument id="password"/>
-        <argument id="securityToken"/>
-        <argument id="environment"/>
-        <argument id="lightningMode">
-          <value class="value" valueClass="string">default</value>
-        </argument>
-        <argument id="webBrowser"/>
-      </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: TestResult">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">TestResult</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="variable">
-                  <path element="TestCaseResult"/>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
+        <argument id="condition">
+          <value class="ne">
+            <lhs class="variable">
+              <path element="TestSuiteExecutionId"/>
+            </lhs>
           </value>
         </argument>
       </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="17" title="Set Test Status">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Set Test Status</value>
-        </argument>
-      </arguments>
       <clauses>
-        <clause name="hidden" testItemId="18">
+        <clause name="then" testItemId="29">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="3" title="If: {TestResult = &quot;successful&quot;}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: DemoSandbox (Test)">
               <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="variable">
-                      <path element="TestResult"/>
-                    </lhs>
-                    <rhs class="value" valueClass="string">successful</rhs>
+                <argument id="connectionName">
+                  <value class="value" valueClass="string">DemoSandbox</value>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">DemoSandbox</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="uiApplicationName"/>
+                <argument id="quickUiLogin">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="closeAllPrimaryTabs">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="reuseConnectionName"/>
+                <argument id="alreadyOpenBehaviour">
+                  <value class="value" valueClass="string">Fail</value>
+                </argument>
+                <argument id="privateBrowsingMode"/>
+                <argument id="enableObjectIdLogging">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="autoCleanup"/>
+                <argument id="cleanupConnectionName"/>
+                <argument id="logFileLocation"/>
+                <argument id="username"/>
+                <argument id="password"/>
+                <argument id="securityToken"/>
+                <argument id="environment"/>
+                <argument id="lightningMode">
+                  <value class="value" valueClass="string">default</value>
+                </argument>
+                <argument id="webBrowser"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="7" title="Set Values: TestResult">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">TestResult</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="TestCaseResult"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
                   </value>
                 </argument>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="17" title="Set Test Status">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Set Test Status</value>
+                </argument>
+              </arguments>
               <clauses>
-                <clause name="then" testItemId="4">
+                <clause name="hidden" testItemId="18">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="10" title="Set Values: TestResult">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">TestResult</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="value" valueClass="string">Pass</value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="8">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="11" title="If: {TestResult = &quot;failed&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="3" title="If: {TestResult = &quot;successful&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="variable">
                               <path element="TestResult"/>
                             </lhs>
-                            <rhs class="value" valueClass="string">failed</rhs>
+                            <rhs class="value" valueClass="string">successful</rhs>
                           </value>
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="12">
+                        <clause name="then" testItemId="4">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="9" title="Set Values: TestResult">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="10" title="Set Values: TestResult">
                               <arguments>
                                 <argument id="values">
                                   <value class="valueList" mutable="Mutable">
@@ -131,7 +107,7 @@
                                         <value class="value" valueClass="string">TestResult</value>
                                       </namedValue>
                                       <namedValue name="value">
-                                        <value class="value" valueClass="string">Fail</value>
+                                        <value class="value" valueClass="string">Pass</value>
                                       </namedValue>
                                       <namedValue name="valueScope">
                                         <value class="value" valueClass="string">Test</value>
@@ -143,26 +119,67 @@
                             </apiCall>
                           </steps>
                         </clause>
-                        <clause name="else" testItemId="13">
+                        <clause name="else" testItemId="8">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="15" title="Set Values: TestResult">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="11" title="If: {TestResult = &quot;failed&quot;}">
                               <arguments>
-                                <argument id="values">
-                                  <value class="valueList" mutable="Mutable">
-                                    <namedValues mutable="Mutable">
-                                      <namedValue name="valuePath">
-                                        <value class="value" valueClass="string">TestResult</value>
-                                      </namedValue>
-                                      <namedValue name="value">
-                                        <value class="value" valueClass="string">Skipped</value>
-                                      </namedValue>
-                                      <namedValue name="valueScope">
-                                        <value class="value" valueClass="string">Test</value>
-                                      </namedValue>
-                                    </namedValues>
+                                <argument id="condition">
+                                  <value class="eq">
+                                    <lhs class="variable">
+                                      <path element="TestResult"/>
+                                    </lhs>
+                                    <rhs class="value" valueClass="string">failed</rhs>
                                   </value>
                                 </argument>
                               </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="12">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="9" title="Set Values: TestResult">
+                                      <arguments>
+                                        <argument id="values">
+                                          <value class="valueList" mutable="Mutable">
+                                            <namedValues mutable="Mutable">
+                                              <namedValue name="valuePath">
+                                                <value class="value" valueClass="string">TestResult</value>
+                                              </namedValue>
+                                              <namedValue name="value">
+                                                <value class="value" valueClass="string">Fail</value>
+                                              </namedValue>
+                                              <namedValue name="valueScope">
+                                                <value class="value" valueClass="string">Test</value>
+                                              </namedValue>
+                                            </namedValues>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                                <clause name="else" testItemId="13">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="15" title="Set Values: TestResult">
+                                      <arguments>
+                                        <argument id="values">
+                                          <value class="valueList" mutable="Mutable">
+                                            <namedValues mutable="Mutable">
+                                              <namedValue name="valuePath">
+                                                <value class="value" valueClass="string">TestResult</value>
+                                              </namedValue>
+                                              <namedValue name="value">
+                                                <value class="value" valueClass="string">Skipped</value>
+                                              </namedValue>
+                                              <namedValue name="valueScope">
+                                                <value class="value" valueClass="string">Test</value>
+                                              </namedValue>
+                                            </namedValues>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
                           </steps>
                         </clause>
@@ -172,62 +189,62 @@
                 </clause>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: provarti__Test_Case_Execution__c=&gt;TestCaseExecutionId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">provarti__Test_Case_Execution__c</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">TestCaseExecutionId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">DemoSandbox</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="provarti__Test_Suite_Execution__c">
+                  <value class="variable">
+                    <path element="TestSuiteExecutionId"/>
+                  </value>
+                </argument>
+                <argument id="provarti__End_Date_Time__c">
+                  <value class="variable">
+                    <path element="NOW"/>
+                  </value>
+                </argument>
+                <argument id="provarti__Status__c">
+                  <value class="variable">
+                    <path element="TestResult"/>
+                  </value>
+                </argument>
+                <argument id="provarti__Name__c">
+                  <value class="variable">
+                    <path element="TestCaseName"/>
+                  </value>
+                </argument>
+                <argument id="provarti__Start_Date_Time__c"/>
+                <argument id="provarti__Comments__c">
+                  <value class="value" valueClass="string">Check Provar Test Log for details</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">DemoSandbox</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Case_Execution__c</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Test_Suite_Execution__c" name="provarti__Test_Suite_Execution__c" title="provarti__Test_Suite_Execution__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__End_Date_Time__c" name="provarti__End_Date_Time__c" title="provarti__End_Date_Time__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Status__c" name="provarti__Status__c" title="provarti__Status__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Start_Date_Time__c" name="provarti__Start_Date_Time__c" title="provarti__Start_Date_Time__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Comments__c" name="provarti__Comments__c" title="provarti__Comments__c"/>
+              </generatedParameters>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: provarti__Test_Case_Execution__c=&gt;TestCaseExecutionId">
-      <arguments>
-        <argument id="objectType">
-          <value class="value" valueClass="string">provarti__Test_Case_Execution__c</value>
-        </argument>
-        <argument id="resultIdName">
-          <value class="value" valueClass="string">TestCaseExecutionId</value>
-        </argument>
-        <argument id="apexConnectionName">
-          <value class="value" valueClass="string">DemoSandbox</value>
-        </argument>
-        <argument id="assignmentRuleId"/>
-        <argument id="resultScope">
-          <value class="value" valueClass="string">Test</value>
-        </argument>
-        <argument id="provarti__Test_Suite_Execution__c">
-          <value class="variable">
-            <path element="TestSuiteExecutionId"/>
-          </value>
-        </argument>
-        <argument id="provarti__End_Date_Time__c">
-          <value class="variable">
-            <path element="NOW"/>
-          </value>
-        </argument>
-        <argument id="provarti__Status__c">
-          <value class="variable">
-            <path element="TestResult"/>
-          </value>
-        </argument>
-        <argument id="provarti__Name__c">
-          <value class="variable">
-            <path element="TestCaseName"/>
-          </value>
-        </argument>
-        <argument id="provarti__Start_Date_Time__c"/>
-        <argument id="provarti__Comments__c">
-          <value class="value" valueClass="string">Check Provar Test Log for details</value>
-        </argument>
-      </arguments>
-      <parameterGeneratorProperties>
-        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">DemoSandbox</propertyValue>
-        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">provarti__Test_Case_Execution__c</propertyValue>
-      </parameterGeneratorProperties>
-      <generatedParameters>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Test_Suite_Execution__c" name="provarti__Test_Suite_Execution__c" title="provarti__Test_Suite_Execution__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__End_Date_Time__c" name="provarti__End_Date_Time__c" title="provarti__End_Date_Time__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Status__c" name="provarti__Status__c" title="provarti__Status__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Name__c" name="provarti__Name__c" title="provarti__Name__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Start_Date_Time__c" name="provarti__Start_Date_Time__c" title="provarti__Start_Date_Time__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=provarti__Test_Case_Execution__c&amp;field=provarti__Comments__c" name="provarti__Comments__c" title="provarti__Comments__c"/>
-      </generatedParameters>
     </apiCall>
   </steps>
   <params>

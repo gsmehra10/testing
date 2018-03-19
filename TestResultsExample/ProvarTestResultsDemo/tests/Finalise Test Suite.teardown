@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="8">
+<testCase failureBehaviour="Continue" id="8">
   <summary>&lt;font face="Lucida Grande"&gt;Update final duration of test run&lt;/font&gt;</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: DemoSandbox (Test)">
