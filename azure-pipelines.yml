@@ -13,7 +13,7 @@ steps:
 - task: Ant@1
   inputs:
     workingDirectory: ''
-    buildFile: 'build.properties'
+    buildFile: 'build.xml'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
